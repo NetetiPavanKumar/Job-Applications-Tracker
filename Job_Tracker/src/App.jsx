@@ -9,6 +9,8 @@ import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
 import "./App.css"
+import api from "./app";
+
 
 
 export default function App(){
@@ -21,7 +23,8 @@ export default function App(){
   async function getMe(){
     try{
       setLoading(true);
-      let response=await axios.get("http://localhost:3000/me",{
+      // let response=await axios.get("http://localhost:3000/me",{
+      let response=await axios.get("/me",{
         withCredentials:true,
       });
       let user=response.data;

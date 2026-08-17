@@ -4,6 +4,7 @@ import Header from "./Header"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios";
 import { useRef } from "react";
+import api from "./app";
 
 export default function EditApp({loggedin, setLoggedin, getMe}){
 
@@ -71,7 +72,8 @@ export default function EditApp({loggedin, setLoggedin, getMe}){
         try{
             setLoading(true);
             console.log("Sending...")
-            let response=await axios.get(`http://localhost:3000/app/${app_id}`,{
+            // let response=await axios.get(`http://localhost:3000/app/${app_id}`,{
+            let response=await api.get(`/app/${app_id}`,{
                 withCredentials:true,
             });
             setEditApp(response.data);
@@ -100,7 +102,8 @@ export default function EditApp({loggedin, setLoggedin, getMe}){
     async function updateAppData(){
         try{
             setLoading(true);
-            let response=await axios.put(`http://localhost:3000/updateapp/${app_id}`,{
+            // let response=await axios.put(`http://localhost:3000/updateapp/${app_id}`,{
+            let response=await api.put(`/updateapp/${app_id}`,{
                 ...editApp
             },{
                 withCredentials:true,

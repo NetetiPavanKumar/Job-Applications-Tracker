@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import api from "./app";
 
 
 export default function Signin({getMe}){
@@ -48,7 +49,8 @@ export default function Signin({getMe}){
 
     async function doLogin(){
         try{
-            let response=await axios.post("http://localhost:3000/login",{
+            // let response=await axios.post("http://localhost:3000/login",{
+            let response=await api.post("/login",{
                 ...logs,
             },{
                 withCredentials:true,

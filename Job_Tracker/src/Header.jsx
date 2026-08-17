@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useRef } from "react";
+import api from "./app";
 
 export default function Header({loggedin,setLoggedin,getMe}){
 
@@ -10,7 +11,8 @@ export default function Header({loggedin,setLoggedin,getMe}){
 
     async function doLogOut(){
         try{
-            let response=await axios.post("http://localhost:3000/logout",{},{
+            // let response=await axios.post("http://localhost:3000/logout",{},{
+            let response=await api.post("/logout",{},{
                 withCredentials:true,
             })
             setLoggedin(false);

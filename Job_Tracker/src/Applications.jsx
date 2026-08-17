@@ -4,6 +4,7 @@ import Header from "./Header"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Trash2, Pencil } from "lucide-react";
+import api from "./app";
 
 
 export default function Applications({loggedin, setLoggedin, getMe}){
@@ -115,7 +116,8 @@ export default function Applications({loggedin, setLoggedin, getMe}){
     async function getApps(){
         try{
             setLoading(true);
-            let response=await axios.get("http://localhost:3000/apps",{
+            // let response=await axios.get("http://localhost:3000/apps",{
+            let response=await api.get("/apps",{
                 withCredentials:true,
             });
             setApps(response.data);
@@ -203,7 +205,9 @@ export default function Applications({loggedin, setLoggedin, getMe}){
 
     async function deleteApp(id){
         try{
-            let response=await axios.delete(`http://localhost:3000/delapp/${id}`,{
+            // let response=await axios.delete(`http://localhost:3000/delapp/${id}`,{
+            let response=await api.delete(`delapp/${id}`,{
+        
                 withCredentials:true,
             });
             getApps();

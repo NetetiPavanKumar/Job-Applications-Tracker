@@ -3,6 +3,7 @@ import "./SignUp.css"
 import { useNavigate } from "react-router-dom"
 import { useRef } from "react";
 import axios from "axios";
+import api from "./app";
 
 
 export default function Signup(){
@@ -83,7 +84,8 @@ export default function Signup(){
     async function sendUserData(){
         try{
             console.log("posting....")
-            let response=await axios.post("http://localhost:3000/users",{
+            // let response=await axios.post("http://localhost:3000/users",{
+            let response=await api.post("/users",{
                 ...userData,
             })
             console.log(response.data);

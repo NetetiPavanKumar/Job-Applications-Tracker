@@ -4,6 +4,7 @@ import Header from "./Header"
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import { useRef } from "react";
+import api from "./app";
 
 export default function AddApp({loggedin, setLoggedin, getMe}){
 
@@ -66,7 +67,8 @@ export default function AddApp({loggedin, setLoggedin, getMe}){
 
     async function sendAppData(){
         try{
-        let response=await axios.post("http://localhost:3000/saveapp",{
+        // let response=await axios.post("http://localhost:3000/saveapp",{
+        let response=await api.post("/saveapp",{
             ...appInfo
         },{
             withCredentials:true,
