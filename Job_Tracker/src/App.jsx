@@ -24,7 +24,7 @@ export default function App(){
     try{
       setLoading(true);
       // let response=await axios.get("http://localhost:3000/me",{
-      let response=await axios.get("/me",{
+      let response=await api.get("/me",{
         withCredentials:true,
       });
       let user=response.data;
