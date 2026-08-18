@@ -337,9 +337,9 @@ export default function EditApp({loggedin, setLoggedin, getMe}){
                         }}/>
                 </div>
                 </div>
-                <div style={{textAlign:"center"}}><button id="add-app-btn" onClick={()=>{
+                <div style={{textAlign:"center"}}><button id="add-app-btn" onClick={async ()=>{
                     if(validateApp()){
-                        updateAppData();
+                        await updateAppData();
                         nav("/applications")
                     }
                 }}>Update Application</button></div>
